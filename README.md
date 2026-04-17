@@ -1,73 +1,43 @@
-# React + TypeScript + Vite
+# web-massage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Front-end da aplicação **Meri Terapias Integrativas & SPA**, consumidor do
+back-end [`massage-api`](../api-massage). Apresenta a vitrine de serviços
+(massagens) e direciona o cliente ao WhatsApp para contato.
 
-Currently, two official plugins are available:
+Construído com React 19, TypeScript, Vite, TailwindCSS, React Router e
+TanStack Query.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Requisitos
 
-## React Compiler
+- Node.js 20+
+- npm 10+
+- Back-end `massage-api` rodando (por padrão em `http://localhost:8080`)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Configuração
 
-## Expanding the ESLint configuration
+1. Instalar as dependências:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+   ```bash
+   npm install
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. (Opcional) Criar um arquivo `.env` na raiz apontando para o back-end, caso a
+   URL não seja a padrão:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+   ```env
+   VITE_API_URL=http://localhost:8080
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   Se omitido, a aplicação usa `http://localhost:8080`.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Comando           | Descrição                                     |
+| ----------------- | --------------------------------------------- |
+| `npm run dev`     | Sobe o servidor de desenvolvimento (Vite).    |
+| `npm run build`   | Gera o build de produção em `dist/`.          |
+| `npm run preview` | Serve o build de produção localmente.         |
+| `npm run lint`    | Executa o ESLint.                             |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Com o back-end rodando, execute `npm run dev` e acesse
+`http://localhost:5173`.
