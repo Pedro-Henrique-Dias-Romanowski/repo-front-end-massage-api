@@ -129,7 +129,7 @@ export function HomePage() {
       <section className="py-16 bg-brand-800 text-white text-center">
         <div className="mx-auto max-w-xl px-4">
           <h2 className="font-serif text-3xl font-semibold mb-4">
-            Pronta para se cuidar?
+            Pronto(a) para se cuidar?
           </h2>
           <p className="text-brand-300 mb-8">
             Entre em contato pelo WhatsApp e agende sua sessão agora mesmo.
